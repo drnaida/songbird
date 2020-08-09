@@ -37,7 +37,7 @@ class Navigation extends React.Component {
   render() {
     return (
       <div className="progress-bar">
-        <span className="progress-bar__element">Разминка</span>
+        <span className="progress-bar__element progress-bar__element--active">Разминка</span>
         <span className="progress-bar__element">Воробьиные</span>
         <span className="progress-bar__element">Лесные птицы</span>
         <span className="progress-bar__element">Певчие птицы</span>

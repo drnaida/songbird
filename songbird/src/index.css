@@ -1,13 +1,134 @@
 body {
-  margin: 0;
-  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
-    'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
-    sans-serif;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
+  background-color: #222;
+  font-weight: 400;
+  color: #fff;
+  line-height: 1.5;
+  font-family: "Lato", -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol";
+  font-size: 18px;
 }
 
-code {
-  font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
-    monospace;
+.app-wrapper {
+  margin: 0 auto;
+  max-width: 1200px;
+}
+
+.header {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.header__logo {
+  height: 100px;
+  width: 200px;
+}
+
+.header__score {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: space-between;
+  width: 90px;
+  font-weight: 600;
+  font-size: 20px;
+}
+
+.header__score--text {
+
+}
+
+.header__score--value {
+
+}
+
+.progress-bar {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+}
+
+.progress-bar__element {
+  background-color: #008966;
+  flex: auto;
+  text-align: center;
+  padding: 10px 0;
+}
+
+.progress-bar__element--active {
+  background-color: #00bc8c;
+}
+
+.progress-bar__element:first-child {
+  border-bottom-left-radius: 5px;
+  border-top-left-radius: 5px;
+}
+
+.progress-bar__element:last-child {
+  border-bottom-right-radius: 5px;
+  border-top-right-radius: 5px;
+}
+
+.current-question-block {
+
+}
+
+.current-question-block__logo {
+
+}
+
+.current-question-block__control-panel {
+
+}
+
+.current-question-block__bird-name {
+
+}
+
+.current-question-block__controls {
+
+}
+
+.choices-list {
+
+}
+
+.choices-list__element {
+
+}
+
+.choices-and-answer-wrapper {
+
+}
+
+.answer-block {
+
+}
+
+.answer-block__row {
+
+}
+
+.answer-block__logo {
+
+}
+
+.answer-block__information {
+
+}
+
+.answer-block__information--name {
+
+}
+
+.answer-block__information--latin-name {
+
+}
+
+.answer-block__information--audio {
+
+}
+
+.answer-block__description {
+
 }
