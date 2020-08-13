@@ -1,7 +1,16 @@
+:root {
+  --color-grey-dark: #303030;
+  --color-green-dark: #008966;
+  --color-green: #00bc8c;
+  --color-green-light: #20c997;
+  --color-grey-light: #555;
+  --color-white: #fff;
+}
+
 body {
   background-color: #222;
   font-weight: 400;
-  color: #fff;
+  color: var(--color-white);
   line-height: 1.5;
   font-family: "Lato", -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol";
   font-size: 18px;
@@ -10,6 +19,8 @@ body {
 .app-wrapper {
   margin: 0 auto;
   max-width: 1200px;
+  display: flex;
+  flex-direction: column;
 }
 
 .header {
@@ -46,17 +57,18 @@ body {
   display: flex;
   flex-direction: row;
   justify-content: space-between;
+  margin-bottom: 2rem;
 }
 
 .progress-bar__element {
-  background-color: #008966;
+  background-color: var(--color-green-dark);
   flex: auto;
   text-align: center;
   padding: 10px 0;
 }
 
 .progress-bar__element--active {
-  background-color: #00bc8c;
+  background-color: var(--color-green);
 }
 
 .progress-bar__element:first-child {
@@ -71,14 +83,21 @@ body {
 
 .current-question-block {
 
+  background-color: var(--color-grey-dark);
+  display: flex;
+  flex-direction: row;
+  padding: 1rem;
+  margin-bottom: 2rem;
 }
 
 .current-question-block__logo {
-
+  height: 10rem;
+  border-radius: 10px;
 }
 
 .current-question-block__control-panel {
-
+  display: flex;
+  flex-direction: column;
 }
 
 .current-question-block__bird-name {
@@ -89,15 +108,18 @@ body {
 
 }
 
-.choices-list {
+.choices-and-answer-wrapper {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+}
 
+.choices-list {
+  border: 1px solid var(--color-grey-light);
+  border-radius: 5px;
 }
 
 .choices-list__element {
-
-}
-
-.choices-and-answer-wrapper {
 
 }
 
@@ -131,4 +153,28 @@ body {
 
 .answer-block__description {
 
+}
+
+.btn-next {
+  display: flex;
+  flex-grow: 1;
+  justify-content: center;
+  border-radius: 5px;
+  border: 1px solid var(--color-grey-light);
+  background-color: var(--color-grey-dark);
+  color: var(--color-white);
+  padding: 10px;
+  cursor: auto;
+  font-size: 18px;
+  outline: none;
+}
+
+.btn-next--active {
+  background-color: var(--color-green);
+  cursor: pointer;
+  transition: all .2s;
+}
+
+.btn-next--active:hover {
+  background-color: var(--color-green-light);
 }

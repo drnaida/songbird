@@ -1,5 +1,6 @@
 import React from 'react';
 import logo from './logo.svg';
+import defaultBirdImage from './defaultBirdImage.jpg';
 import './App.css';
 
 class App extends React.Component {
@@ -13,7 +14,7 @@ class App extends React.Component {
           <Choices />
           <Answer />
         </div>
-        <button class="btn-next">Next Level</button>
+        <button class="btn-next btn-next--active">Next Level</button>
       </div>
     );
   }
@@ -52,7 +53,7 @@ class CurrentQuestion extends React.Component {
   render() {
     return(
       <div className="current-question-block">
-        <div className="current-question-block__logo"></div>
+        <img className="current-question-block__logo" src={defaultBirdImage} alt="Default bird"/>
         <div className="current-question-block__control-panel">
           <div className="current-question-block__bird-name">******</div>
           <div className="current-question-block__controls">Controls</div>
