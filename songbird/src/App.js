@@ -2,6 +2,9 @@ import React from 'react';
 import logo from './logo.svg';
 import defaultBirdImage from './defaultBirdImage.jpg';
 import './App.css';
+import birdsData from './quizData';
+
+console.log(birdsData);
 
 class App extends React.Component {
   render() {
@@ -38,7 +41,7 @@ class Navigation extends React.Component {
   render() {
     return (
       <div className="progress-bar">
-        <span className="progress-bar__element progress-bar__element--active">Разминка</span>
+        <span className="progress-bar__element progress-bar__element--active">Rock groups</span>
         <span className="progress-bar__element">Воробьиные</span>
         <span className="progress-bar__element">Лесные птицы</span>
         <span className="progress-bar__element">Певчие птицы</span>
@@ -64,9 +67,21 @@ class CurrentQuestion extends React.Component {
 }
 
 class Choices extends React.Component {
+  state = {
+    count: 0
+  }
+
+  handleClick() {
+    this.setState({count: this.state.count + 1});
+    console.log(this.state.count);
+    const rand = Math.floor(1 + Math.random() * (7 - 1));
+    const rightAnswer = birdsData[0][rand];
+    console.log(rightAnswer);
+  }
+
   render() {
     return(
-      <ul className="choices-list">
+      <ul className="choices-list" onClick={() => this.handleClick()}>
         <li className="choices-list__element">
           Something
         </li>
