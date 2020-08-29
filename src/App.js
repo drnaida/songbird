@@ -1,23 +1,28 @@
 import React from 'react';
-import logo from './logo.svg';
-import defaultBirdImage from './defaultBirdImage.jpg';
+import logo from './assets/images/logo.svg';
+import defaultBirdImage from './assets/images/defaultBirdImage.jpg';
 import './App.css';
 import birdsData from './assets/quizData';
 
-console.log(birdsData);
-
 class App extends React.Component {
+  constructor(props) {
+    super(props);
+    this.state = {
+      level: 1,
+      score: 0
+    }
+  }
   render() {
     return (
-      <div class="app-wrapper">
-        <Header />
-        <Navigation />
+      <div className="app-wrapper">
+        <Header score={this.state.score}/>
+        <Navigation level={this.state.score}/>
         <CurrentQuestion />
         <div className="choices-and-answer-wrapper">
-          <Choices />
+          <Choices data={birdsData[this.state.level - 1]}/>
           <Answer />
         </div>
-        <button class="btn-next btn-next--active">Next Level</button>
+        <button className="btn-next btn-next--active">Next Level</button>
       </div>
     );
   }
@@ -25,12 +30,13 @@ class App extends React.Component {
 
 class Header extends React.Component {
   render() {
+    const props = this.props;
     return (
       <header className="header">
         <img className="header__logo" src={logo} alt="Songbird logo" />
         <div className="header__score">
           <div className="header__score--text">Score: </div>
-          <div className="header__score--value">11</div>
+          <div className="header__score--value">{props.score}</div>
         </div>
       </header>
     );
@@ -41,7 +47,7 @@ class Navigation extends React.Component {
   render() {
     return (
       <div className="progress-bar">
-        <span className="progress-bar__element progress-bar__element--active">Rock groups</span>
+        <span className="progress-bar__element">Разминка</span>
         <span className="progress-bar__element">Воробьиные</span>
         <span className="progress-bar__element">Лесные птицы</span>
         <span className="progress-bar__element">Певчие птицы</span>
@@ -67,21 +73,11 @@ class CurrentQuestion extends React.Component {
 }
 
 class Choices extends React.Component {
-  state = {
-    count: 0
-  }
-
-  handleClick() {
-    this.setState({count: this.state.count + 1});
-    console.log(this.state.count);
-    const rand = Math.floor(1 + Math.random() * (7 - 1));
-    const rightAnswer = birdsData[0][rand];
-    console.log(rightAnswer);
-  }
-
   render() {
+    const props = this.props;
+    console.log(props);
     return(
-      <ul className="choices-list" onClick={() => this.handleClick()}>
+      <ul className="choices-list">
         <li className="choices-list__element">
           Something
         </li>
