@@ -17,7 +17,8 @@ class App extends React.Component {
       correctAnswerId: 0,
       isAnsweredCorrect: false,
       currentLevelScore: 5,
-      areChoicesClickable: true
+      areChoicesClickable: true,
+      isTheEndOfGame: false
     }
     this.setCorrectAnswer = this.setCorrectAnswer.bind(this);
     this.nextLevel = this.nextLevel.bind(this);
@@ -60,7 +61,7 @@ class App extends React.Component {
           <Choices data={birdsData[this.state.level]} correctAnswerId={this.state.correctAnswerId} click={this.checkCorrectness} canUserClick={this.state.areChoicesClickable}/>
           <Answer />
         </div>
-        {this.state.isAnsweredCorrect ? <NextButton click={this.nextLevel}/> : null}
+        <NextButton click={this.nextLevel} disabled={!this.state.isAnsweredCorrect} className={this.state.isAnsweredCorrect ? 'NextButton--active' : null} />
       </div>
     );
   }
