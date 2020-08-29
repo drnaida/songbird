@@ -29,7 +29,8 @@ class App extends React.Component {
 
   nextLevel() {
     console.log('Next level!');
-    this.setState({level: this.state.level + 1})
+    this.setState({level: this.state.level + 1});
+    this.setState({isAnsweredCorrect: false});
     this.setCorrectAnswer();
   }
 
