@@ -2,7 +2,7 @@ import React from 'react';
 import logo from './logo.svg';
 import defaultBirdImage from './defaultBirdImage.jpg';
 import './App.css';
-import birdsData from './quizData';
+import birdsData from './assets/quizData';
 
 console.log(birdsData);
 
