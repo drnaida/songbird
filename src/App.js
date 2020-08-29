@@ -15,7 +15,8 @@ class App extends React.Component {
       level: 0,
       score: 0,
       correctAnswerId: 0,
-      isAnsweredCorrect: false
+      isAnsweredCorrect: false,
+      currentLevelScore: 5
     }
     this.setCorrectAnswer = this.setCorrectAnswer.bind(this);
     this.nextLevel = this.nextLevel.bind(this);
@@ -37,8 +38,10 @@ class App extends React.Component {
   checkCorrectness(clickedChoiceBirdName) {
     if (clickedChoiceBirdName === birdsData[this.state.level][this.state.correctAnswerId].name) {
       this.setState({isAnsweredCorrect: true});
+      this.setState({score: this.state.score + this.state.currentLevelScore});
       console.log('Right');
     } else {
+      this.setState({currentLevelScore: this.state.currentLevelScore - 1});
       console.log('Wrong');
     }
   }
