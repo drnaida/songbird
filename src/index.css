@@ -119,13 +119,13 @@ body {
   margin-bottom: 20px;
 }
 
-.choices-list {
+.Choices {
   border: 1px solid var(--color-grey-light);
   border-radius: 5px;
   flex-grow: 1;
 }
 
-.choices-list__element {
+.ChoicesElement {
 
 }
 

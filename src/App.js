@@ -1,6 +1,7 @@
 import React from 'react';
 import Header from './Header';
 import Navigation from './Navigation';
+import Choices from './Choices';
 import defaultBirdImage from './assets/images/defaultBirdImage.jpg';
 import './App.css';
 import birdsData from './assets/quizData';
@@ -10,17 +11,32 @@ class App extends React.Component {
     super(props);
     this.state = {
       level: 0,
-      score: 0
+      score: 0,
+      correctAnswerId: 0
     }
+    this.setCorrectAnswer = this.setCorrectAnswer.bind(this);
+    this.nextLevel = this.nextLevel.bind(this);
   }
+
+  setCorrectAnswer() {
+    const randomId = Math.floor(Math.random() * birdsData[this.state.level].length);
+    console.log(randomId);
+    this.setState({correctAnswerId: randomId});
+  }
+
+  nextLevel() {
+    console.log('Next level!');
+  }
+
   render() {
+    console.log(this.state.correctAnswerId);
     return (
       <div className="app-wrapper">
         <Header score={this.state.score}/>
         <Navigation level={this.state.level}/>
         <CurrentQuestion />
         <div className="choices-and-answer-wrapper">
-          <Choices data={birdsData[this.state.level - 1]}/>
+          <Choices data={birdsData[this.state.level]} correctAnswerId={this.state.correctAnswerId} click={this.nextLevel}/>
           <Answer />
         </div>
         <button className="btn-next btn-next--active">Next Level</button>
@@ -41,35 +57,6 @@ class CurrentQuestion extends React.Component {
           <div className="current-question-block__controls">Controls</div>
         </div>
       </div>
-    );
-  }
-}
-
-class Choices extends React.Component {
-  render() {
-    const props = this.props;
-    console.log(props);
-    return(
-      <ul className="choices-list">
-        <li className="choices-list__element">
-          Something
-        </li>
-        <li className="choices-list__element">
-          Something
-        </li>
-        <li className="choices-list__element">
-          Something
-        </li>
-        <li className="choices-list__element">
-          Something
-        </li>
-        <li className="choices-list__element">
-          Something
-        </li>
-        <li className="choices-list__element">
-          Something
-        </li>
-      </ul>
     );
   }
 }
