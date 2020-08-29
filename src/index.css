@@ -161,7 +161,7 @@ body {
 
 }
 
-.btn-next {
+.NextButton {
   display: flex;
   flex-grow: 1;
   justify-content: center;
@@ -175,13 +175,13 @@ body {
   outline: none;
 }
 
-.btn-next--active {
+.NextButton--active {
   background-color: var(--color-green);
   cursor: pointer;
   transition: all .2s;
 }
 
-.btn-next--active:hover {
+.NextButton--active:hover {
   background-color: var(--color-green-light);
 }
 

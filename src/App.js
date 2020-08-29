@@ -2,7 +2,9 @@ import React from 'react';
 import Header from './Header';
 import Navigation from './Navigation';
 import Choices from './Choices';
-import defaultBirdImage from './assets/images/defaultBirdImage.jpg';
+import NextButton from './NextButton';
+import CurrentQuestion from './CurrentQuestion';
+
 import './App.css';
 import birdsData from './assets/quizData';
 
@@ -12,7 +14,8 @@ class App extends React.Component {
     this.state = {
       level: 0,
       score: 0,
-      correctAnswerId: 0
+      correctAnswerId: 0,
+      isAnsweredCorrect: false
     }
     this.setCorrectAnswer = this.setCorrectAnswer.bind(this);
     this.nextLevel = this.nextLevel.bind(this);
@@ -29,34 +32,22 @@ class App extends React.Component {
     this.setCorrectAnswer();
   }
 
+  checkCorrectness() {
+
+  }
+
   render() {
     console.log(this.state.correctAnswerId);
     return (
       <div className="app-wrapper">
         <Header score={this.state.score}/>
         <Navigation level={this.state.level}/>
-        <CurrentQuestion />
+        <CurrentQuestion data={birdsData[this.state.level]} isAnsweredCorrect={this.state.isAnsweredCorrect} correctAnswerId={this.state.correctAnswerId}/>
         <div className="choices-and-answer-wrapper">
-          <Choices data={birdsData[this.state.level]} correctAnswerId={this.state.correctAnswerId} click={this.nextLevel}/>
+          <Choices data={birdsData[this.state.level]} correctAnswerId={this.state.correctAnswerId} onClick=""/>
           <Answer />
         </div>
-        <button className="btn-next btn-next--active">Next Level</button>
-      </div>
-    );
-  }
-}
-
-
-
-class CurrentQuestion extends React.Component {
-  render() {
-    return(
-      <div className="current-question-block">
-        <img className="current-question-block__logo" src={defaultBirdImage} alt="Default bird"/>
-        <div className="current-question-block__control-panel">
-          <div className="current-question-block__bird-name">******</div>
-          <div className="current-question-block__controls">Controls</div>
-        </div>
+        <NextButton click={this.nextLevel}/>
       </div>
     );
   }
