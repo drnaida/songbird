@@ -53,7 +53,7 @@ body {
 
 }
 
-.progress-bar {
+.Navigation {
   display: flex;
   flex-direction: row;
   justify-content: space-between;
@@ -61,14 +61,14 @@ body {
   flex-wrap: wrap;
 }
 
-.progress-bar__element {
+.NavigationElement {
   background-color: var(--color-green-dark);
   flex: auto;
   text-align: center;
   padding: 10px 0;
 }
 
-.progress-bar__element--active {
+.NavigationElement--active {
   background-color: var(--color-green);
 }
 
