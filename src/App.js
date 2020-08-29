@@ -20,12 +20,13 @@ class App extends React.Component {
 
   setCorrectAnswer() {
     const randomId = Math.floor(Math.random() * birdsData[this.state.level].length);
-    console.log(randomId);
     this.setState({correctAnswerId: randomId});
   }
 
   nextLevel() {
     console.log('Next level!');
+    this.setState({level: this.state.level + 1})
+    this.setCorrectAnswer();
   }
 
   render() {
