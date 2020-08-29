@@ -19,6 +19,7 @@ class App extends React.Component {
     }
     this.setCorrectAnswer = this.setCorrectAnswer.bind(this);
     this.nextLevel = this.nextLevel.bind(this);
+    this.checkCorrectness = this.checkCorrectness.bind(this);
   }
 
   setCorrectAnswer() {
@@ -32,8 +33,13 @@ class App extends React.Component {
     this.setCorrectAnswer();
   }
 
-  checkCorrectness() {
-
+  checkCorrectness(clickedChoiceBirdName) {
+    if (clickedChoiceBirdName === birdsData[this.state.level][this.state.correctAnswerId].name) {
+      this.setState({isAnsweredCorrect: true});
+      console.log('Right');
+    } else {
+      console.log('Wrong');
+    }
   }
 
   render() {
@@ -44,7 +50,7 @@ class App extends React.Component {
         <Navigation level={this.state.level}/>
         <CurrentQuestion data={birdsData[this.state.level]} isAnsweredCorrect={this.state.isAnsweredCorrect} correctAnswerId={this.state.correctAnswerId}/>
         <div className="choices-and-answer-wrapper">
-          <Choices data={birdsData[this.state.level]} correctAnswerId={this.state.correctAnswerId} onClick=""/>
+          <Choices data={birdsData[this.state.level]} correctAnswerId={this.state.correctAnswerId} click={this.checkCorrectness} />
           <Answer />
         </div>
         <NextButton click={this.nextLevel}/>
