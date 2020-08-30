@@ -145,6 +145,14 @@ body {
   border-radius: 50%;
 }
 
+.ChoicesElement-dot--green {
+  background-color: var(--color-green);
+}
+
+.ChoicesElement-dot--red {
+  background-color: var(--color-red);
+}
+
 .CurrentBird {
   width: 50%;
   margin-left: 10px;

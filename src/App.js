@@ -60,7 +60,6 @@ class App extends React.Component {
   }
 
   restartGame() {
-    console.log('Restart');
     this.setState({score: 0});
     this.setState({level: 0});
     this.setState({isAnsweredCorrect: false});
