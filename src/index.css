@@ -198,6 +198,7 @@ body {
   border-top: 1px solid var(--color-grey-light);
   border-bottom: 1px solid var(--color-grey-light);
   padding: 4px;
+  margin-bottom: 10px;
 }
 
 .CurrentBird-description {
@@ -289,6 +290,9 @@ body {
     margin-right: 0;
     margin: 0 auto;
     margin-bottom: 25px;
+  }
+  .CurrentBird-description {
+    margin-top: 40px;
   }
 }
 
@@ -430,4 +434,20 @@ body {
 }
 .App-wrapper .rhap_play-pause-button svg {
   display: none;
+}
+.CurrentBird .rhap_main {
+  display: flex;
+  flex-direction: column;
+}
+.CurrentBird .rhap_progress-section {
+  margin-bottom: 45px;
+}
+.CurrentBird .rhap_current-time {
+  top: 30px;
+}
+.CurrentBird .rhap_total-time {
+  top: 30px;
+}
+.CurrentBird .rhap_play-pause-button {
+  top: 55px;
 }
