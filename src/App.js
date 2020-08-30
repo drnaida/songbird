@@ -53,7 +53,7 @@ class App extends React.Component {
   render() {
     console.log(this.state.correctAnswerId);
     return (
-      <div className="app-wrapper">
+      <div className="App-wrapper">
         <Header score={this.state.score}/>
         <Navigation level={this.state.level}/>
         <CurrentQuestion data={birdsData[this.state.level]} isAnsweredCorrect={this.state.isAnsweredCorrect} correctAnswerId={this.state.correctAnswerId}/>

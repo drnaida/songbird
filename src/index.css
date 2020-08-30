@@ -4,7 +4,9 @@
   --color-green: #00bc8c;
   --color-green-light: #20c997;
   --color-grey-light: #555;
+  --color-grey: #444;
   --color-white: #fff;
+  --color-red: #d62c1a;
 }
 
 body {
@@ -16,41 +18,32 @@ body {
   font-size: 18px;
 }
 
-.app-wrapper {
+.App-wrapper {
   margin: 0 auto;
-  max-width: 1200px;
+  max-width: 1140px;
   display: flex;
   flex-direction: column;
 }
 
-.header {
+.Header {
   display: flex;
   flex-direction: row;
   justify-content: space-between;
   align-items: center;
 }
 
-.header__logo {
+.Header-logo {
   height: 100px;
   width: 200px;
 }
 
-.header__score {
+.Header-score {
   display: flex;
   flex-direction: row;
   align-items: center;
   justify-content: space-between;
-  width: 90px;
   font-weight: 600;
-  font-size: 20px;
-}
-
-.header__score--text {
-
-}
-
-.header__score--value {
-
+  font-size: 18.75px;
 }
 
 .Navigation {
@@ -59,30 +52,31 @@ body {
   justify-content: space-between;
   margin-bottom: 2rem;
   flex-wrap: wrap;
+  font-size: 15px;
 }
 
 .NavigationElement {
   background-color: var(--color-green-dark);
   flex: auto;
   text-align: center;
-  padding: 10px 0;
+  padding: 7px 0;
 }
 
 .NavigationElement--active {
   background-color: var(--color-green);
 }
 
-.progress-bar__element:first-child {
+.NavigationElement:first-child {
   border-bottom-left-radius: 5px;
   border-top-left-radius: 5px;
 }
 
-.progress-bar__element:last-child {
+.NavigationElement:last-child {
   border-bottom-right-radius: 5px;
   border-top-right-radius: 5px;
 }
 
-.current-question-block {
+.CurrentQuestion {
   background-color: var(--color-grey-dark);
   display: flex;
   flex-direction: row;
@@ -90,26 +84,22 @@ body {
   margin-bottom: 2rem;
 }
 
-.current-question-block__logo {
+.CurrentQuestion-logo {
   height: 10rem;
   border-radius: 10px;
   margin-right: 30px;
 }
 
-.current-question-block__control-panel {
+.CurrentQuestion-control-panel {
   display: flex;
   flex-direction: column;
   width: calc(100% - 240px);
 }
 
-.current-question-block__bird-name {
+.CurrentQuestion-bird-name {
   font-weight: 600;
   font-size: 32px;
   border-bottom: 1px solid var(--color-grey-light);
-}
-
-.current-question-block__controls {
-
 }
 
 .choices-and-answer-wrapper {
@@ -122,15 +112,36 @@ body {
 .Choices {
   border: 1px solid var(--color-grey-light);
   border-radius: 5px;
-  flex-grow: 1;
+  width: 50%;
+  list-style: none;
+  padding: 0;
+  margin-right: 10px;
 }
 
 .ChoicesElement {
+  cursor: pointer;
+  background-color: var(--color-grey-dark);
+  border: 1px solid var(--color-grey-light);
+  padding: 15px 20px;
+  font-size: 15px;
+}
 
+.ChoicesElement:hover {
+  background-color: var(--color-grey-light);
+}
+
+.ChoicesElement-dot {
+  background-color: var(--color-grey-light);
+  display: inline-block;
+  width: 10px;
+  height: 10px;
+  margin-right: 15px;
+  border-radius: 50%;
 }
 
 .answer-block {
-  flex-grow: 1;
+  width: 50%;
+  margin-left: 10px;
 }
 
 .answer-block__row {
@@ -187,7 +198,7 @@ body {
 
 
 @media (max-width: 600px) {
-  .app-wrapper {
+  .App-wrapper {
     padding: 0 5px;
   }
   .current-question-block {
