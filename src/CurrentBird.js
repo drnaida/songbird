@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
-import AudioPlayer from './AudioPlayer';
+import AudioPlayer from 'react-h5-audio-player';
+import 'react-h5-audio-player/lib/styles.css';
 
 class CurrentBird extends Component {
   render() {
