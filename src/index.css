@@ -20,6 +20,7 @@ body {
 
 .App-wrapper {
   margin: 0 auto;
+  padding: 10px;
   max-width: 1140px;
   display: flex;
   flex-direction: column;
@@ -265,8 +266,19 @@ body {
 }
 
 @media (max-width: 900px) {
+  .App-wrapper {
+    padding: 0 25px;
+  }
   .GameOver-heading {
     font-size: 48px;
+  }
+  .CurrentBird-row {
+    flex-direction: column;
+  }
+  .CurrentBird-logo {
+    margin-right: 0;
+    margin: 0 auto;
+    margin-bottom: 25px;
   }
 }
 
@@ -303,11 +315,11 @@ body {
     box-sizing: border-box;
   }
   .CurrentBird-row {
-    flex-direction: column;
     align-items: center;
   }
   .CurrentBird-logo {
     margin-right: 0;
+    margin: 0;
     margin-bottom: 25px;
   }
   .CurrentBird-name {
@@ -318,5 +330,8 @@ body {
   }
   .GameOver-heading {
     font-size: 32px;
+  }
+  .NextButton {
+    margin-bottom: 25px;
   }
 }
