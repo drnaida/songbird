@@ -25,7 +25,7 @@ class App extends React.Component {
       isTheEndOfGame: false,
       isAnyChoiceWasClicked: false,
       currentBird: null,
-      isTheChoiceClicked: [0, 0, 0, 0, 0, 0]
+      isTheChoiceClicked: [0, 0, 0, 0, 0, 0],
     }
     this.setCorrectAnswer = this.setCorrectAnswer.bind(this);
     this.nextLevel = this.nextLevel.bind(this);
