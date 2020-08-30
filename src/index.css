@@ -110,8 +110,6 @@ body {
 }
 
 .Choices {
-  border: 1px solid var(--color-grey-light);
-  border-radius: 5px;
   width: 50%;
   list-style: none;
   padding: 0;
@@ -125,6 +123,16 @@ body {
   border: 1px solid var(--color-grey-light);
   padding: 15px 20px;
   font-size: 15px;
+}
+
+.ChoicesElement:first-child {
+  border-top-left-radius: 5px;
+  border-top-right-radius: 5px;
+}
+
+.ChoicesElement:last-child {
+  border-bottom-left-radius: 5px;
+  border-bottom-right-radius: 5px;
 }
 
 .ChoicesElement:hover {
@@ -143,14 +151,31 @@ body {
 .CurrentBird {
   width: 50%;
   margin-left: 10px;
+  background-color: var(--color-grey-dark);
+  border: 1px solid var(--color-grey-light);
+  border-radius: 5px;
+  padding: 16px;
+}
+
+.CurrentBird-text {
+  display: block;
+  font-size: 15px;
 }
 
 .CurrentBird-row {
+  display: flex;
+  flex-direction: row;
+}
 
+.CurrentBird-row:not(:last-child) {
+  margin-bottom: 20px;
 }
 
 .CurrentBird-logo {
-
+  height: 155px;
+  width: 200px;
+  border-radius: 10px;
+  margin-right: 32px;
 }
 
 .CurrentBird-information {
@@ -158,15 +183,18 @@ body {
 }
 
 .CurrentBird-name {
-
+  font-size: 22.5px;
 }
 
 .CurrentBird-latin-name {
-
+  font-size: 15px;
+  border-top: 1px solid var(--color-grey-light);
+  border-bottom: 1px solid var(--color-grey-light);
+  padding: 4px;
 }
 
 .CurrentBird-description {
-
+  font-size: 15px;
 }
 
 .NextButton {
