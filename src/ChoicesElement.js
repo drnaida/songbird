@@ -5,7 +5,7 @@ class ChoicesElement extends Component {
     const props = this.props;
     if (props.isTheChoiceClicked[props.birdId - 1] === 0) {
       return(
-        <li className="ChoicesElement" onClick={props.canUserClick ? () => {props.click(props.birdName, props.birdId)} : null}>
+        <li className="ChoicesElement" onClick={() => {props.click(props.birdName, props.birdId)}}>
           <span class="ChoicesElement-dot"></span>
           {props.birdName} {props.correctAnswerId}
         </li>
