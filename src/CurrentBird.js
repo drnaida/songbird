@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import AudioPlayer from 'react-h5-audio-player';
+import AudioPlayer, { RHAP_UI } from 'react-h5-audio-player';
 import 'react-h5-audio-player/lib/styles.css';
 
 class CurrentBird extends Component {
@@ -20,7 +20,7 @@ class CurrentBird extends Component {
                 <div className="CurrentBird-latin-name">
                   {props.currentBird.species}
                 </div>
-                <AudioPlayer />
+                <AudioPlayer layout="horizontal-reverse" autoPlayAfterSrcChange={false} showJumpControls={false} showDownloadProgress={false} src={props.currentBird.audio} customControlsSection={[RHAP_UI.MAIN_CONTROLS, RHAP_UI.VOLUME_CONTROLS]}/>
               </div>
             </div>
             <div className="CurrentBird-row">
