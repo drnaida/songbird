@@ -276,79 +276,6 @@ body {
   max-width: 300px;
 }
 
-@media (max-width: 900px) {
-  .App-wrapper {
-    padding: 0 25px;
-  }
-  .GameOver-heading {
-    font-size: 48px;
-  }
-  .CurrentBird-row {
-    flex-direction: column;
-  }
-  .CurrentBird-logo {
-    margin-right: 0;
-    margin: 0 auto;
-    margin-bottom: 25px;
-  }
-  .CurrentBird-description {
-    margin-top: 40px;
-  }
-}
-
-@media (max-width: 600px) {
-  .App-wrapper {
-    padding: 0 5px;
-  }
-  .CurrentQuestion {
-    flex-direction: column;
-  }
-  .CurrentQuestion-logo {
-    height: 155px;
-    width: 200px;
-    margin: 0 auto;
-    margin-bottom: 20px;
-  }
-  .CurrentQuestion-bird-name {
-    text-align: center;
-  }
-  .CurrentQuestion-control-panel {
-    width: 100%;
-  }
-  .choices-and-answer-wrapper {
-    flex-direction: column;
-  }
-  .Choices {
-    width: 100%;
-    margin-bottom: 40px;
-    margin-right: 0;
-  }
-  .CurrentBird {
-    width: 100%;
-    margin-left: 0;
-    box-sizing: border-box;
-  }
-  .CurrentBird-row {
-    align-items: center;
-  }
-  .CurrentBird-logo {
-    margin-right: 0;
-    margin: 0;
-    margin-bottom: 25px;
-  }
-  .CurrentBird-name {
-    text-align: center;
-  }
-  .CurrentBird-latin-name {
-    text-align: center;
-  }
-  .GameOver-heading {
-    font-size: 32px;
-  }
-  .NextButton {
-    margin-bottom: 25px;
-  }
-}
 .App-wrapper .rhap_container {
     position: relative;
     height: 52px;
@@ -450,4 +377,101 @@ body {
 }
 .CurrentBird .rhap_play-pause-button {
   top: 55px;
+}
+.CurrentBird .rhap_volume-container {
+  margin-right: 0;
+}
+
+@media (max-width: 900px) {
+  .App-wrapper {
+    padding: 0 25px;
+  }
+  .GameOver-heading {
+    font-size: 48px;
+  }
+  .CurrentBird-row {
+    flex-direction: column;
+  }
+  .CurrentBird-logo {
+    margin-right: 0;
+    margin: 0 auto;
+    margin-bottom: 25px;
+  }
+  .CurrentBird-description {
+    margin-top: 40px;
+  }
+  .App-wrapper .rhap_main {
+    flex-direction: column;
+  }
+  .App-wrapper .rhap_progress-section {
+    margin-bottom: 45px;
+  }
+  .App-wrapper .rhap_current-time {
+    top: 30px;
+  }
+  .App-wrapper .rhap_total-time {
+    top: 30px;
+  }
+  .App-wrapper .rhap_play-pause-button {
+    top: 55px;
+  }
+  .App-wrapper .rhap_volume-container {
+    margin-right: 0;
+  }
+}
+
+@media (max-width: 600px) {
+  .App-wrapper {
+    padding: 0 5px;
+  }
+  .CurrentQuestion {
+    flex-direction: column;
+    padding: 20px;
+    height: 325px;
+  }
+  .CurrentQuestion-logo {
+    height: 155px;
+    width: 200px;
+    margin: 0 auto;
+    margin-bottom: 20px;
+  }
+  .CurrentQuestion-bird-name {
+    text-align: center;
+  }
+  .CurrentQuestion-control-panel {
+    width: 100%;
+  }
+  .choices-and-answer-wrapper {
+    flex-direction: column;
+  }
+  .Choices {
+    width: 100%;
+    margin-bottom: 40px;
+    margin-right: 0;
+  }
+  .CurrentBird {
+    width: 100%;
+    margin-left: 0;
+    box-sizing: border-box;
+  }
+  .CurrentBird-row {
+    align-items: center;
+  }
+  .CurrentBird-logo {
+    margin-right: 0;
+    margin: 0;
+    margin-bottom: 25px;
+  }
+  .CurrentBird-name {
+    text-align: center;
+  }
+  .CurrentBird-latin-name {
+    text-align: center;
+  }
+  .GameOver-heading {
+    font-size: 32px;
+  }
+  .NextButton {
+    margin-bottom: 25px;
+  }
 }
