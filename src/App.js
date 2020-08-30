@@ -66,7 +66,7 @@ class App extends React.Component {
     this.setState({areChoicesClickable: true});
     this.setState({isTheEndOfGame: false});
     this.setState({isAnyChoiceWasClicked: false});
-    this.setCorrectAnswer();
+    this.setState({correctAnswerId: Math.floor(Math.random() * 6)});
   }
 
   render() {
@@ -80,7 +80,7 @@ class App extends React.Component {
           <CurrentBird isAnyChoiceWasClicked={this.state.isAnyChoiceWasClicked} isTheEndOfGame={this.state.isTheEndOfGame}/>
         </div>
         <NextButton click={this.nextLevel} isAnsweredCorrect={this.state.isAnsweredCorrect} isTheEndOfGame={this.state.isTheEndOfGame}/>
-        <GameOver score={this.state.score} click={this.restartGame}/>
+        <GameOver score={this.state.score} click={this.restartGame} isTheEndOfGame={this.state.isTheEndOfGame}/>
       </div>
     );
   }
