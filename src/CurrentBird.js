@@ -15,7 +15,7 @@ class CurrentBird extends Component {
               </div>
               <div className="CurrentBird-information">
                 <div className="CurrentBird-name">
-                  Something
+                  {props.currentBird.name}
                 </div>
                 <div className="CurrentBird-latin-name">
                   sdfsdf

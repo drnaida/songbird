@@ -4,7 +4,7 @@ class ChoicesElement extends Component {
   render() {
     const props = this.props;
     return(
-      <li className="ChoicesElement" onClick={props.canUserClick ? () => {props.click(props.birdName)} : null}>
+      <li className="ChoicesElement" onClick={props.canUserClick ? () => {props.click(props.birdName, props.birdId)} : null}>
         <span class="ChoicesElement-dot"></span>
         {props.birdName} {props.correctAnswerId}
       </li>

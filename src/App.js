@@ -21,7 +21,8 @@ class App extends React.Component {
       currentLevelScore: 5,
       areChoicesClickable: true,
       isTheEndOfGame: false,
-      isAnyChoiceWasClicked: false
+      isAnyChoiceWasClicked: false,
+      currentBird: null
     }
     this.setCorrectAnswer = this.setCorrectAnswer.bind(this);
     this.nextLevel = this.nextLevel.bind(this);
@@ -46,8 +47,9 @@ class App extends React.Component {
     }
   }
 
-  checkCorrectness(clickedChoiceBirdName) {
+  checkCorrectness(clickedChoiceBirdName, clickedChoiceBirdId) {
     this.setState({isAnyChoiceWasClicked: true});
+    this.setState({currentBird: clickedChoiceBirdId});
     if (clickedChoiceBirdName === birdsData[this.state.level][this.state.correctAnswerId].name) {
       this.setState({isAnsweredCorrect: true});
       this.setState({score: this.state.score + this.state.currentLevelScore});
@@ -77,7 +79,7 @@ class App extends React.Component {
         <CurrentQuestion data={this.state.level < 6 ? birdsData[this.state.level] : birdsData[4]} isAnsweredCorrect={this.state.isAnsweredCorrect} correctAnswerId={this.state.correctAnswerId} isTheEndOfGame={this.state.isTheEndOfGame}/>
         <div className="choices-and-answer-wrapper">
           <Choices data={this.state.level < 6 ? birdsData[this.state.level] : birdsData[4]} correctAnswerId={this.state.correctAnswerId} click={this.checkCorrectness} canUserClick={this.state.areChoicesClickable} isTheEndOfGame={this.state.isTheEndOfGame}/>
-          <CurrentBird isAnyChoiceWasClicked={this.state.isAnyChoiceWasClicked} isTheEndOfGame={this.state.isTheEndOfGame}/>
+          <CurrentBird isAnyChoiceWasClicked={this.state.isAnyChoiceWasClicked} isTheEndOfGame={this.state.isTheEndOfGame} currentBird={birdsData[this.state.level][this.state.currentBird - 1]} />
         </div>
         <NextButton click={this.nextLevel} isAnsweredCorrect={this.state.isAnsweredCorrect} isTheEndOfGame={this.state.isTheEndOfGame}/>
         <GameOver score={this.state.score} click={this.restartGame} isTheEndOfGame={this.state.isTheEndOfGame}/>
