@@ -11,21 +11,20 @@ class CurrentBird extends Component {
         return(
           <div className="CurrentBird">
             <div className="CurrentBird-row">
-              <div className="CurrentBird-logo">
-              </div>
+              <img className="CurrentBird-logo" src={props.currentBird.image} alt="Bird" />
               <div className="CurrentBird-information">
                 <div className="CurrentBird-name">
                   {props.currentBird.name}
                 </div>
                 <div className="CurrentBird-latin-name">
-                  sdfsdf
+                  {props.currentBird.species}
                 </div>
                 <AudioPlayer />
               </div>
             </div>
             <div className="CurrentBird-row">
               <div className="CurrentBird-description">
-                lorem lorem lorem lorem lorem lodsfsdfsdfsdddddddddddddddddddddddddddddddddd
+                {props.currentBird.description}
               </div>
             </div>
           </div>
