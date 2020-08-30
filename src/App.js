@@ -33,12 +33,16 @@ class App extends React.Component {
   }
 
   nextLevel() {
-    console.log('Next level!');
     this.setState({level: this.state.level + 1});
-    this.setState({isAnsweredCorrect: false});
-    this.setState({areChoicesClickable: true});
-    this.setState({isAnyChoiceWasClicked: false});
-    this.setCorrectAnswer();
+    console.log('Level: ' + this.state.level);
+    if (this.state.level === 5) {
+      this.setState({isTheEndOfGame: true});
+    } else {
+      this.setState({isAnsweredCorrect: false});
+      this.setState({areChoicesClickable: true});
+      this.setState({isAnyChoiceWasClicked: false});
+      this.setCorrectAnswer();
+    }
   }
 
   checkCorrectness(clickedChoiceBirdName) {
@@ -60,12 +64,12 @@ class App extends React.Component {
       <div className="App-wrapper">
         <Header score={this.state.score}/>
         <Navigation level={this.state.level}/>
-        <CurrentQuestion data={birdsData[this.state.level]} isAnsweredCorrect={this.state.isAnsweredCorrect} correctAnswerId={this.state.correctAnswerId}/>
+        <CurrentQuestion data={this.state.level < 6 ? birdsData[this.state.level] : birdsData[4]} isAnsweredCorrect={this.state.isAnsweredCorrect} correctAnswerId={this.state.correctAnswerId} isTheEndOfGame={this.state.isTheEndOfGame}/>
         <div className="choices-and-answer-wrapper">
-          <Choices data={birdsData[this.state.level]} correctAnswerId={this.state.correctAnswerId} click={this.checkCorrectness} canUserClick={this.state.areChoicesClickable}/>
-          <CurrentBird isAnyChoiceWasClicked={this.state.isAnyChoiceWasClicked}/>
+          <Choices data={this.state.level < 6 ? birdsData[this.state.level] : birdsData[4]} correctAnswerId={this.state.correctAnswerId} click={this.checkCorrectness} canUserClick={this.state.areChoicesClickable} isTheEndOfGame={this.state.isTheEndOfGame}/>
+          <CurrentBird isAnyChoiceWasClicked={this.state.isAnyChoiceWasClicked} isTheEndOfGame={this.state.isTheEndOfGame}/>
         </div>
-        <NextButton click={this.nextLevel} isAnsweredCorrect={this.state.isAnsweredCorrect} />
+        <NextButton click={this.nextLevel} isAnsweredCorrect={this.state.isAnsweredCorrect} isTheEndOfGame={this.state.isTheEndOfGame} isTheEndOfGame={this.state.isTheEndOfGame}/>
       </div>
     );
   }
