@@ -19,7 +19,8 @@ class App extends React.Component {
       isAnsweredCorrect: false,
       currentLevelScore: 5,
       areChoicesClickable: true,
-      isTheEndOfGame: false
+      isTheEndOfGame: false,
+      isAnyChoiceWasClicked: false
     }
     this.setCorrectAnswer = this.setCorrectAnswer.bind(this);
     this.nextLevel = this.nextLevel.bind(this);
@@ -36,10 +37,12 @@ class App extends React.Component {
     this.setState({level: this.state.level + 1});
     this.setState({isAnsweredCorrect: false});
     this.setState({areChoicesClickable: true});
+    this.setState({isAnyChoiceWasClicked: false});
     this.setCorrectAnswer();
   }
 
   checkCorrectness(clickedChoiceBirdName) {
+    this.setState({isAnyChoiceWasClicked: true});
     if (clickedChoiceBirdName === birdsData[this.state.level][this.state.correctAnswerId].name) {
       this.setState({isAnsweredCorrect: true});
       this.setState({score: this.state.score + this.state.currentLevelScore});
@@ -60,7 +63,7 @@ class App extends React.Component {
         <CurrentQuestion data={birdsData[this.state.level]} isAnsweredCorrect={this.state.isAnsweredCorrect} correctAnswerId={this.state.correctAnswerId}/>
         <div className="choices-and-answer-wrapper">
           <Choices data={birdsData[this.state.level]} correctAnswerId={this.state.correctAnswerId} click={this.checkCorrectness} canUserClick={this.state.areChoicesClickable}/>
-          <CurrentBird />
+          <CurrentBird isAnyChoiceWasClicked={this.state.isAnyChoiceWasClicked}/>
         </div>
         <NextButton click={this.nextLevel} isAnsweredCorrect={this.state.isAnsweredCorrect} />
       </div>
