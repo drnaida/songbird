@@ -10,7 +10,7 @@ class Choices extends Component {
         return(
           <ul className="Choices">
             {props.data.map((bird) => (
-              <ChoicesElement birdName={bird.name} isCorrect={(bird.id - 1) === props.correctAnswerId} click={props.click} canUserClick={props.canUserClick} birdId={bird.id}/>
+              <ChoicesElement isTheChoiceClicked={props.isTheChoiceClicked} birdName={bird.name} isCorrect={(bird.id - 1) === props.correctAnswerId} click={props.click} canUserClick={props.canUserClick} birdId={bird.id}/>
             ))}
           </ul>
         );

@@ -22,7 +22,8 @@ class App extends React.Component {
       areChoicesClickable: true,
       isTheEndOfGame: false,
       isAnyChoiceWasClicked: false,
-      currentBird: null
+      currentBird: null,
+      isTheChoiceClicked: [0, 0, 0, 0, 0, 0]
     }
     this.setCorrectAnswer = this.setCorrectAnswer.bind(this);
     this.nextLevel = this.nextLevel.bind(this);
@@ -43,6 +44,7 @@ class App extends React.Component {
       this.setState({isAnsweredCorrect: false});
       this.setState({areChoicesClickable: true});
       this.setState({isAnyChoiceWasClicked: false});
+      this.setState({isTheChoiceClicked: [0, 0, 0, 0, 0, 0]});
       this.setCorrectAnswer();
     }
   }
@@ -50,12 +52,19 @@ class App extends React.Component {
   checkCorrectness(clickedChoiceBirdName, clickedChoiceBirdId) {
     this.setState({isAnyChoiceWasClicked: true});
     this.setState({currentBird: clickedChoiceBirdId});
+    console.log('Clicked: ' + clickedChoiceBirdId);
     if (clickedChoiceBirdName === birdsData[this.state.level][this.state.correctAnswerId].name) {
       this.setState({isAnsweredCorrect: true});
       this.setState({score: this.state.score + this.state.currentLevelScore});
       this.setState({areChoicesClickable: false});
+      const {isTheChoiceClicked} = this.state;
+      isTheChoiceClicked[clickedChoiceBirdId - 1] = 2;
+      this.setState({isTheChoiceClicked});
     } else {
       this.setState({currentLevelScore: this.state.currentLevelScore - 1});
+      const {isTheChoiceClicked} = this.state;
+      isTheChoiceClicked[clickedChoiceBirdId - 1] = 1;
+      this.setState({isTheChoiceClicked});
     }
   }
 
@@ -68,6 +77,7 @@ class App extends React.Component {
     this.setState({isTheEndOfGame: false});
     this.setState({isAnyChoiceWasClicked: false});
     this.setState({correctAnswerId: Math.floor(Math.random() * 6)});
+    this.setState({isTheChoiceClicked: [0, 0, 0, 0, 0, 0]});
   }
 
   render() {
@@ -77,7 +87,7 @@ class App extends React.Component {
         <Navigation level={this.state.level}/>
         <CurrentQuestion data={this.state.level < 6 ? birdsData[this.state.level] : birdsData[4]} isAnsweredCorrect={this.state.isAnsweredCorrect} correctAnswerId={this.state.correctAnswerId} isTheEndOfGame={this.state.isTheEndOfGame}/>
         <div className="choices-and-answer-wrapper">
-          <Choices data={this.state.level < 6 ? birdsData[this.state.level] : birdsData[4]} correctAnswerId={this.state.correctAnswerId} click={this.checkCorrectness} canUserClick={this.state.areChoicesClickable} isTheEndOfGame={this.state.isTheEndOfGame}/>
+          <Choices isTheChoiceClicked={this.state.isTheChoiceClicked} data={this.state.level < 6 ? birdsData[this.state.level] : birdsData[4]} correctAnswerId={this.state.correctAnswerId} click={this.checkCorrectness} canUserClick={this.state.areChoicesClickable} isTheEndOfGame={this.state.isTheEndOfGame}/>
           <CurrentBird isAnyChoiceWasClicked={this.state.isAnyChoiceWasClicked} isTheEndOfGame={this.state.isTheEndOfGame} currentBird={this.state.level < 6 ? birdsData[this.state.level][this.state.currentBird - 1] : birdsData[4][this.state.currentBird - 1]} />
         </div>
         <NextButton click={this.nextLevel} isAnsweredCorrect={this.state.isAnsweredCorrect} isTheEndOfGame={this.state.isTheEndOfGame}/>
