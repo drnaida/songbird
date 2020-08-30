@@ -9,6 +9,8 @@ import GameOver from './GameOver';
 
 import './App.css';
 import birdsData from './assets/quizData';
+import correctSound from './assets/sounds/success.mp3';
+import errorSound from './assets/sounds/failure.mp3';
 
 class App extends React.Component {
   constructor(props) {
@@ -54,6 +56,8 @@ class App extends React.Component {
     this.setState({isAnyChoiceWasClicked: true});
     this.setState({currentBird: clickedChoiceBirdId});
     if (clickedChoiceBirdName === birdsData[this.state.level][this.state.correctAnswerId].name) {
+      const audio = new Audio(correctSound);
+      audio.play();
       this.setState({isAnsweredCorrect: true});
       this.setState({score: this.state.score + this.state.currentLevelScore});
       this.setState({areChoicesClickable: false});
@@ -61,6 +65,8 @@ class App extends React.Component {
       isTheChoiceClicked[clickedChoiceBirdId - 1] = 2;
       this.setState({isTheChoiceClicked});
     } else {
+      const audio = new Audio(errorSound);
+      audio.play();
       this.setState({currentLevelScore: this.state.currentLevelScore - 1});
       const {isTheChoiceClicked} = this.state;
       isTheChoiceClicked[clickedChoiceBirdId - 1] = 1;
