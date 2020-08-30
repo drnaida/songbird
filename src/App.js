@@ -4,6 +4,7 @@ import Navigation from './Navigation';
 import Choices from './Choices';
 import NextButton from './NextButton';
 import CurrentQuestion from './CurrentQuestion';
+import CurrentBird from './CurrentBird';
 
 import './App.css';
 import birdsData from './assets/quizData';
@@ -59,7 +60,7 @@ class App extends React.Component {
         <CurrentQuestion data={birdsData[this.state.level]} isAnsweredCorrect={this.state.isAnsweredCorrect} correctAnswerId={this.state.correctAnswerId}/>
         <div className="choices-and-answer-wrapper">
           <Choices data={birdsData[this.state.level]} correctAnswerId={this.state.correctAnswerId} click={this.checkCorrectness} canUserClick={this.state.areChoicesClickable}/>
-          <Answer />
+          <CurrentBird />
         </div>
         <NextButton click={this.nextLevel} isAnsweredCorrect={this.state.isAnsweredCorrect} />
       </div>
@@ -67,33 +68,4 @@ class App extends React.Component {
   }
 }
 
-class Answer extends React.Component {
-  render() {
-    return(
-      <div className="answer-block">
-        <div className="answer-block__row">
-          <div className="answer-block__logo">
-
-          </div>
-          <div className="answer-block__information">
-            <div className="answer-block__information--name">
-              Something
-            </div>
-            <div className="answer-block__information--latin-name">
-              sdfsdf
-            </div>
-            <div className="answer-block__information--audio">
-              Audio
-            </div>
-          </div>
-        </div>
-        <div className="answer-block__row">
-          <div className="answer-block__description">
-            lorem lorem lorem lorem lorem lodsfsdfsdfsdddddddddddddddddddddddddddddddddd
-          </div>
-        </div>
-      </div>
-    );
-  }
-}
 export default App;

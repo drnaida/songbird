@@ -115,6 +115,7 @@ body {
   width: 50%;
   list-style: none;
   padding: 0;
+  margin: 0;
   margin-right: 10px;
 }
 
@@ -139,36 +140,32 @@ body {
   border-radius: 50%;
 }
 
-.answer-block {
+.CurrentBird {
   width: 50%;
   margin-left: 10px;
 }
 
-.answer-block__row {
+.CurrentBird-row {
 
 }
 
-.answer-block__logo {
+.CurrentBird-logo {
 
 }
 
-.answer-block__information {
+.CurrentBird-information {
 
 }
 
-.answer-block__information--name {
+.CurrentBird-name {
 
 }
 
-.answer-block__information--latin-name {
+.CurrentBird-latin-name {
 
 }
 
-.answer-block__information--audio {
-
-}
-
-.answer-block__description {
+.CurrentBird-description {
 
 }
 
