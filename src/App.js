@@ -5,6 +5,7 @@ import Choices from './Choices';
 import NextButton from './NextButton';
 import CurrentQuestion from './CurrentQuestion';
 import CurrentBird from './CurrentBird';
+import GameOver from './GameOver';
 
 import './App.css';
 import birdsData from './assets/quizData';
@@ -15,7 +16,7 @@ class App extends React.Component {
     this.state = {
       level: 0,
       score: 0,
-      correctAnswerId: 0,
+      correctAnswerId: Math.floor(Math.random() * 6),
       isAnsweredCorrect: false,
       currentLevelScore: 5,
       areChoicesClickable: true,
@@ -25,6 +26,7 @@ class App extends React.Component {
     this.setCorrectAnswer = this.setCorrectAnswer.bind(this);
     this.nextLevel = this.nextLevel.bind(this);
     this.checkCorrectness = this.checkCorrectness.bind(this);
+    this.restartGame = this.restartGame.bind(this);
   }
 
   setCorrectAnswer() {
@@ -34,7 +36,6 @@ class App extends React.Component {
 
   nextLevel() {
     this.setState({level: this.state.level + 1});
-    console.log('Level: ' + this.state.level);
     if (this.state.level === 5) {
       this.setState({isTheEndOfGame: true});
     } else {
@@ -51,15 +52,24 @@ class App extends React.Component {
       this.setState({isAnsweredCorrect: true});
       this.setState({score: this.state.score + this.state.currentLevelScore});
       this.setState({areChoicesClickable: false});
-      console.log('Right');
     } else {
       this.setState({currentLevelScore: this.state.currentLevelScore - 1});
-      console.log('Wrong');
     }
   }
 
+  restartGame() {
+    console.log('Restart');
+    this.setState({score: 0});
+    this.setState({level: 0});
+    this.setState({isAnsweredCorrect: false});
+    this.setState({currentLevelScore: 5});
+    this.setState({areChoicesClickable: true});
+    this.setState({isTheEndOfGame: false});
+    this.setState({isAnyChoiceWasClicked: false});
+    this.setCorrectAnswer();
+  }
+
   render() {
-    console.log(this.state.correctAnswerId);
     return (
       <div className="App-wrapper">
         <Header score={this.state.score}/>
@@ -69,7 +79,8 @@ class App extends React.Component {
           <Choices data={this.state.level < 6 ? birdsData[this.state.level] : birdsData[4]} correctAnswerId={this.state.correctAnswerId} click={this.checkCorrectness} canUserClick={this.state.areChoicesClickable} isTheEndOfGame={this.state.isTheEndOfGame}/>
           <CurrentBird isAnyChoiceWasClicked={this.state.isAnyChoiceWasClicked} isTheEndOfGame={this.state.isTheEndOfGame}/>
         </div>
-        <NextButton click={this.nextLevel} isAnsweredCorrect={this.state.isAnsweredCorrect} isTheEndOfGame={this.state.isTheEndOfGame} isTheEndOfGame={this.state.isTheEndOfGame}/>
+        <NextButton click={this.nextLevel} isAnsweredCorrect={this.state.isAnsweredCorrect} isTheEndOfGame={this.state.isTheEndOfGame}/>
+        <GameOver score={this.state.score} click={this.restartGame}/>
       </div>
     );
   }
