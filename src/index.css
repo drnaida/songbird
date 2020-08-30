@@ -53,6 +53,8 @@ body {
   margin-bottom: 2rem;
   flex-wrap: wrap;
   font-size: 15px;
+  border-radius: 5px;
+  overflow: hidden;
 }
 
 .NavigationElement {
@@ -64,16 +66,6 @@ body {
 
 .NavigationElement--active {
   background-color: var(--color-green);
-}
-
-.NavigationElement:first-child {
-  border-bottom-left-radius: 5px;
-  border-top-left-radius: 5px;
-}
-
-.NavigationElement:last-child {
-  border-bottom-right-radius: 5px;
-  border-top-right-radius: 5px;
 }
 
 .CurrentQuestion {
@@ -278,23 +270,35 @@ body {
   .App-wrapper {
     padding: 0 5px;
   }
-  .current-question-block {
+  .CurrentQuestion {
     flex-direction: column;
   }
-  .current-question-block__logo {
+  .CurrentQuestion-logo {
     height: 155px;
     width: 200px;
     margin: 0 auto;
     margin-bottom: 20px;
   }
-  .current-question-block__control-panel {
-    width: 100%;
-  }
-  .current-question-block__bird-name {
+  .CurrentQuestion-bird-name {
     text-align: center;
+  }
+  .CurrentQuestion-control-panel {
+    width: 100%;
   }
   .choices-and-answer-wrapper {
     flex-direction: column;
+  }
+  .Choices {
+    width: 100%;
+    margin-bottom: 40px;
+  }
+  .CurrentBird {
+    width: 100%;
+    margin-left: 0;
+  }
+  .CurrentBird-row {
+    flex-direction: column;
+    align-items: center;
   }
   .GameOver-heading {
     font-size: 32px;
