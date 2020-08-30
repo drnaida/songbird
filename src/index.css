@@ -382,20 +382,26 @@ body {
     right: 0px;
     top: 40px;
   }
+  .App-wrapper .rhap_volume-indicator {
+    top: -6px;
+    width: 16px;
+    height: 16px;
+    background-color: grey;
+    box-shadow: 0 0 4px 0 rgba(0,0,0,.2);
+  }
+  .App-wrapper .rhap_volume-bar-area {
+    outline: none;
+  }
+  .App-wrapper .rhap_volume-button {
+    outline: none;
+  }
+  .App-wrapper .rhap_volume-button svg {
+    color: var(--color-green);
+  }
+  .App-wrapper .rhap_volume-container {
+    margin-right: 20px;
+  }
 /*
-.App-wrapper .rhap_progress-bar-show-download {
-    height: 4px;
-    background-color: rgb(115, 115, 115);
-  }
-.App-wrapper .rhap_download-progress {
-    border-radius: 0;
-    background-color: rgb(115, 115, 115);
-  }
-
-.App-wrapper .rhap_rewind-button,
-.App-wrapper .rhap_forward-button {
-    display: none;
-  }
 .App-wrapper .rhap_play-pause-button {
     position: absolute;
     left: 0;
@@ -423,38 +429,5 @@ body {
 }
 .App-wrapper .rhap_play-pause-button svg {
   display: none;
-}
-.App-wrapper .rhap_volume-controls {
-  position: absolute;
-  top: 0;
-  right: 0;
-}
-.App-wrapper .rhap_volume-container {
-    position: relative;
-  }
-.App-wrapper .rhap_volume-containerhover .rhap_volume-bar-area {
-  display: block;
-}
-.App-wrapper .rhap_volume-button {
-    position: relative;
-    top: 5px;
-    margin-right: 0;
-  }
-.App-wrapper .rhap_volume-bar-area {
-    display: none;
-    width: 50px;
-    position: absolute;
-    top: 17px;
-    right: 32px;
-  }
-.App-wrapper .rhap_volume-bar-area::before {
-  content: '';
-  position: absolute;
-  width: calc(100% + 14px);
-  height: 18px;
-  background-color: var(--color-grey-light);
-  left: -7px;
-  top: -7px;
-  border-radius: 8px;
 }
 */
