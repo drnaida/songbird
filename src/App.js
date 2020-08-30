@@ -79,7 +79,7 @@ class App extends React.Component {
         <CurrentQuestion data={this.state.level < 6 ? birdsData[this.state.level] : birdsData[4]} isAnsweredCorrect={this.state.isAnsweredCorrect} correctAnswerId={this.state.correctAnswerId} isTheEndOfGame={this.state.isTheEndOfGame}/>
         <div className="choices-and-answer-wrapper">
           <Choices data={this.state.level < 6 ? birdsData[this.state.level] : birdsData[4]} correctAnswerId={this.state.correctAnswerId} click={this.checkCorrectness} canUserClick={this.state.areChoicesClickable} isTheEndOfGame={this.state.isTheEndOfGame}/>
-          <CurrentBird isAnyChoiceWasClicked={this.state.isAnyChoiceWasClicked} isTheEndOfGame={this.state.isTheEndOfGame} currentBird={birdsData[this.state.level][this.state.currentBird - 1]} />
+          <CurrentBird isAnyChoiceWasClicked={this.state.isAnyChoiceWasClicked} isTheEndOfGame={this.state.isTheEndOfGame} currentBird={this.state.level < 6 ? birdsData[this.state.level][this.state.currentBird - 1] : birdsData[4][this.state.currentBird - 1]} />
         </div>
         <NextButton click={this.nextLevel} isAnsweredCorrect={this.state.isAnsweredCorrect} isTheEndOfGame={this.state.isTheEndOfGame}/>
         <GameOver score={this.state.score} click={this.restartGame} isTheEndOfGame={this.state.isTheEndOfGame}/>
