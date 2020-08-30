@@ -4,6 +4,8 @@ import ChoicesElement from './ChoicesElement';
 class Choices extends Component {
   render() {
     const props = this.props;
+    console.log('Правильный ответ:');
+    console.log(props.data[props.correctAnswerId].name);
     if (props.isTheEndOfGame) {
       return null;
     } else {
