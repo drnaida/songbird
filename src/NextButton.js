@@ -4,7 +4,7 @@ class NextButton extends Component {
   render() {
     const props = this.props;
     return(
-      <button className="NextButton" onClick={props.click}>Next Level</button>
+      <button onClick={props.click} disabled={!props.isAnsweredCorrect} className={props.isAnsweredCorrect ? 'NextButton NextButton--active' : 'NextButton'}>Next Level</button>
     )
   }
 }

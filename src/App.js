@@ -61,7 +61,7 @@ class App extends React.Component {
           <Choices data={birdsData[this.state.level]} correctAnswerId={this.state.correctAnswerId} click={this.checkCorrectness} canUserClick={this.state.areChoicesClickable}/>
           <Answer />
         </div>
-        <NextButton click={this.nextLevel} disabled={!this.state.isAnsweredCorrect} className={this.state.isAnsweredCorrect ? 'NextButton--active' : null} />
+        <NextButton click={this.nextLevel} isAnsweredCorrect={this.state.isAnsweredCorrect} />
       </div>
     );
   }
